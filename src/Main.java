@@ -10,16 +10,19 @@ public class Main {
             arr[i] = scanner.nextInt();
         }
         int min = findMinFromArr(arr, n);
-        System.out.println("1 Problem. Min from arr is: " + min);
+        System.out.println("Problem 1. Min from arr is: " + min);
 
         double avg = findAvg(arr, n);
-        System.out.println("2 Problem. Average from arr is: " + avg);
+        System.out.println("Problem 2. Average from arr is: " + avg);
 
         if(isPrime(n))
-            System.out.println("3 Problem. Number n is prime");
+            System.out.println("Problem 3. Number n is prime");
         else{
-            System.out.println("3 Problem. Number n is component");
+            System.out.println("Problem 3. Number n is component");
         }
+
+        int factorial = factorial(n);
+        System.out.println("Problem 4. " + n + "! = " + factorial);
 
     }
 
@@ -76,5 +79,24 @@ public class Main {
         }
         return flag;
     }
+
+    /*
+    int factorial(int n)
+
+    @factorial - function to calculate factorial
+    @parameter int n - number whose factorial we need
+    @return - factorial of the number
+     */
+    public static int factorial(int n) {
+
+        if (n == 0 || n == 1) {// Base case: if n is 0 or 1 then return 1 because 0! = 1 and 1! = 1
+            return 1;
+        }
+        else {
+            return n * factorial(n - 1);// Recursive case: if n is greater than 1 - use factorial
+        }
+    }
+
+    
 }
 
