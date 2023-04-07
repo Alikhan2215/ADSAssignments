@@ -15,6 +15,12 @@ public class Main {
         double avg = findAvg(arr, n);
         System.out.println("2 Problem. Average from arr is: " + avg);
 
+        if(isPrime(n))
+            System.out.println("3 Problem. Number n is prime");
+        else{
+            System.out.println("3 Problem. Number n is component");
+        }
+
     }
 
     /*
@@ -52,4 +58,23 @@ public class Main {
             return avg;
         }
 
+    /*
+    boolean isPrime(int n)
+
+    @isPrime - function to identify if number is prime
+    @parameter int n - number which is under testing
+    @return - true if number is prime and false if component
+
+     */
+    public static boolean isPrime(int n){
+        boolean flag = true; //setting a flag for further identifying of prime a number or not
+        for(int i = 2; i <= n/2; i++){ //Creating Loop through all numbers from 2 to n/2
+            if(n % i == 0){ //Creating if statement to find prime numbers
+                flag = false; //setting a flag's value to false if number is not prime
+                break; //breaking a loop after finding component number
+            }
+        }
+        return flag;
+    }
 }
+
