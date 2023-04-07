@@ -24,6 +24,9 @@ public class Main {
         int factorial = factorial(n);
         System.out.println("Problem 4. " + n + "! = " + factorial);
 
+        int nthElement = fibonacci(n);
+        System.out.println("Problem 5. "+ n + "-th element of Fibonacci sequence is " + nthElement);
+
     }
 
     /*
@@ -97,6 +100,23 @@ public class Main {
         }
     }
 
-    
+    /*
+    int fibonacci(int n)
+
+    @fibonacci - function to calculate n-th element of Fibonacci sequence
+    @parameter int n - the serial number of the Fibonacci element that needs to be found
+    @return - n-th element of Fibonacci sequence
+     */
+    public static int fibonacci(int n) {
+
+        if (n == 0 || n == 1) {// Base case: if n is 0 or 1 then return n
+            return n;
+        }
+
+        else { // Recursive case: if n is greater than 1 - calculate the n-th element of Fibonacci sequence
+            return fibonacci(n-1) + fibonacci(n-2);
+        }
+    }
+
 }
 
