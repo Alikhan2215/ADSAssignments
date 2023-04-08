@@ -38,3 +38,10 @@
 **Description**: *Return __a__ to the power of __n__*
 
 **Explanation**: _Base case: if n is 0 - return 1 because a^0 = 1. Recursive case: if n is greater than 0, calculate **a^n as a*a^(n-1)**_
+
+
+# Task 7
+
+**Description**: *Return reversed array*
+
+**Explanation**: *Base case: if there's only one element in the array - print it. Recursive case: print the last element of the array then call the function on the rest of the array*
