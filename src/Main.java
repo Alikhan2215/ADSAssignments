@@ -65,6 +65,16 @@ public class Main {
                 int pow = power(a, n6);
                 System.out.println("Problem 6. a^n = " + pow);
                 break;
+            case 7:
+                System.out.println("Enter number of elements in array and array itself:");
+                int n7;
+                n7 = scanner.nextInt();
+                int[] arr7 = new int[n7];
+                for(int i = 0; i < n7; i++){
+                    arr7[i] = scanner.nextInt();
+                }
+                System.out.println("Problem 7.");
+                reverseArray(arr7, n7);
         }
 
 
@@ -174,6 +184,27 @@ public class Main {
             return 1;
         } else {// Recursive case: if n is greater than 0, calculate a^n as a*a^(n-1)
             return a * power(a, n - 1);
+        }
+    }
+
+
+    /*
+    void reverseArray(int[] arr, int n)
+
+    @reverseArray - function for reversing an array
+    @parameter int[] arr - arr that we want to reverse
+    @parameter int n - number of elements in this array
+    @return - reversed array
+     */
+    public static void reverseArray(int[] arr, int n) {
+
+        if (n == 1) {// Base case: if there's only one element in the array - print it
+            System.out.print(arr[0]);
+        }
+
+        else {// Recursive case: print the last element of the array then call the function on the rest of the array
+            System.out.print(arr[n-1] + " "); // print last element
+            reverseArray(arr, n-1); // recursion with smaller array
         }
     }
 
