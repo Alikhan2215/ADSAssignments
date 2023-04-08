@@ -1,31 +1,72 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-
-        int n;
         Scanner scanner = new Scanner(System.in);
-        n = scanner.nextInt();
-        int[] arr = new int[n];
-        for(int i = 0; i < n; i++){
-            arr[i] = scanner.nextInt();
+        System.out.println("What type of problem do you want solve?: ");
+        int ans = scanner.nextInt();
+        switch (ans){
+            case 1:
+                System.out.println("Enter number of elements in array and array itself: ");
+                int n1;
+                n1 = scanner.nextInt();
+                int[] arr1 = new int[n1];
+                for(int i = 0; i < n1; i++){
+                    arr1[i] = scanner.nextInt();
+                }
+                int min = findMinFromArr(arr1, n1);
+                System.out.println("Problem 1. Min from arr is: " + min);
+                break;
+            case 2:
+                System.out.println("Enter number of elements in array and array itself: ");
+
+                int n2;
+                n2 = scanner.nextInt();
+                int[] arr2 = new int[n2];
+                for(int i = 0; i < n2; i++){
+                    arr2[i] = scanner.nextInt();
+                }
+                double avg = findAvg(arr2, n2);
+                System.out.println("Problem 2. Average from arr is: " + avg);
+                break;
+            case 3:
+                System.out.println("Enter number you want to check prime or composite: ");
+                int n3;
+                n3 = scanner.nextInt();
+                if(isPrime(n3))
+                    System.out.println("Problem 3. Number "+ n3 +" is prime");
+                else{
+                    System.out.println("Problem 3. Number "+ n3 +" is composite");
+                }
+                break;
+            case 4:
+                System.out.println("Enter number of which you need a factorial: ");
+                int n4;
+                n4 = scanner.nextInt();
+                int factorial = factorial(n4);
+                System.out.println("Problem 4. " + n4 + "! = " + factorial);
+                break;
+            case 5:
+                System.out.println("Enter number that will represent n-th element of Fibonacci sequence");
+                int n5;
+                n5 = scanner.nextInt();
+                int nthElement = fibonacci(n5);
+                System.out.println("Problem 5. "+ n5 + "-th element of Fibonacci sequence is " + nthElement);
+                break;
+            case 6:
+                System.out.println("a^n");
+                int a;
+                int n6;
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Type int a:");
+                a = sc.nextInt();
+                System.out.println("Type int n:");
+                n6 = sc.nextInt();
+
+                int pow = power(a, n6);
+                System.out.println("Problem 6. a^n = " + pow);
+                break;
         }
-        int min = findMinFromArr(arr, n);
-        System.out.println("Problem 1. Min from arr is: " + min);
 
-        double avg = findAvg(arr, n);
-        System.out.println("Problem 2. Average from arr is: " + avg);
-
-        if(isPrime(n))
-            System.out.println("Problem 3. Number n is prime");
-        else{
-            System.out.println("Problem 3. Number n is component");
-        }
-
-        int factorial = factorial(n);
-        System.out.println("Problem 4. " + n + "! = " + factorial);
-
-        int nthElement = fibonacci(n);
-        System.out.println("Problem 5. "+ n + "-th element of Fibonacci sequence is " + nthElement);
 
 
     }
@@ -78,7 +119,7 @@ public class Main {
         for(int i = 2; i <= n/2; i++){ //Creating Loop through all numbers from 2 to n/2
             if(n % i == 0){ //Creating if statement to find prime numbers
                 flag = false; //setting a flag's value to false if number is not prime
-                break; //breaking a loop after finding component number
+                break; //breaking a loop after finding composite number
             }
         }
         return flag;
@@ -119,6 +160,22 @@ public class Main {
         }
     }
 
+    /*
+    int power(int a, int n)
+
+    @power - function to find 'a' to the power of 'n'
+    @parameter int a - the number we raise to a power
+    @parameter int n - to what power we raise number 'a'
+    @return - a^n
+     */
+    public static int power(int a, int n) {
+
+        if (n == 0) {// Base case: if n is 0 - return 1 because a^0 = 1
+            return 1;
+        } else {// Recursive case: if n is greater than 0, calculate a^n as a*a^(n-1)
+            return a * power(a, n - 1);
+        }
+    }
 
 
 }
