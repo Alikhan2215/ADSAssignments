@@ -75,6 +75,24 @@ public class Main {
                 }
                 System.out.println("Problem 7.");
                 reverseArray(arr7, n7);
+                break;
+            case 8:
+
+                // Prompt the user to enter a string
+                System.out.println("Enter a string:");
+                String s;
+                scanner.nextLine();
+                s = scanner.nextLine();
+                System.out.println("Problem 8.");
+
+                // Call the isAllDigits function with the user input
+                if(isAllDigits(s)){
+                    System.out.println("yes");
+                }
+                else{
+                    System.out.println("no");
+                }
+                break;
         }
 
 
@@ -209,6 +227,25 @@ public class Main {
         }
     }
 
+    /*
+    boolean isAllDigits(String s)
+
+    @isAllDigits - function to check if string consist of all digits
+    @parameter String s - string that is going to be checked
+    @return - true or false depends on is all digits string or not
+     */
+    public static boolean isAllDigits(String s) {
+
+        if (s.length() == 0) {// Check for base case: if the string is empty - return true, because of the recursion part
+            return true;
+        }
+
+        if (Character.isDigit(s.charAt(0))) {// Check if the first character is a digit
+            return isAllDigits(s.substring(1));// Recursively check the remaining substring
+        } else {
+            return false;// If this character is not digit then the string is not all digits
+        }
+    }
 
 }
 
