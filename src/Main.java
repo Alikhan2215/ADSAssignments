@@ -107,14 +107,15 @@ public class Main {
     @parameter int n - number of elements in array
     @return - average number from array
     */
-        public static double findAvg(int[] arr, int n){
-            double sum = 0;
-            for(int i = 0; i < n; i++){ //creating a loop to sum all numbers in array
-                sum = sum + arr[i];
-            }
-            double avg = sum / n; //defining average
-            return avg;
+
+    public static double findAvg(int[] arr, int n) {
+        if (n == 1) {//Base case: if only one element return it
+            return arr[0];
+        } else { //Recursive case: compute average of first n-1 elements, then add the nth element and divide by n
+            return ((findAvg(arr, n - 1) * (n - 1)) + arr[n - 1]) / n;
         }
+    }
+
 
     /*
     boolean isPrime(int n)
