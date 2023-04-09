@@ -97,6 +97,13 @@ public class Main {
                 int k = scanner.nextInt();
                 System.out.println("Problem 9. Binomial coefficient of entered n and k: " + binomialCoefficient(n, k));
                 break;
+            case 10:
+                System.out.println("Enter a and b to find their GCD: ");
+                int a1 = scanner.nextInt();
+                int b = scanner.nextInt();
+                int GCD = findGCD(a1, b);
+                System.out.println("Problem 10. GCD of "+ a1 +" and "+ b +" is: " + GCD);
+                break;
         }
 
 
@@ -264,6 +271,21 @@ public class Main {
         } else {//Recursive case: C(k, n) = C(k-1, n-1) + C(k, n-1)
             return binomialCoefficient(n-1, k-1) + binomialCoefficient(n-1, k);
         }
+    }
+    /*
+    int findGCD(int a, int b)
+
+    @findGCD - function to find GCD of two numbers
+    @parameter a - first number
+    @parameter b - second number
+    @return - GCD of 'a' and 'b'
+     */
+    public static int findGCD(int a, int b) {
+        if (b == 0) {//Base case: if b = 0 we return 'a' because GCD of 'a' and 0 is 'a'
+            return a;
+        }
+        return findGCD(b, a % b);//Recursive case: we keep dividing the larger number by
+        // the smaller number until the remainder is zero, core concept - Euclidean Algorithm
     }
 
 }
