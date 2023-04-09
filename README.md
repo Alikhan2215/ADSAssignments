@@ -52,3 +52,17 @@
 **Description**: *Return true if string consists all of digits and false if not*
 
 **Explanation**: *Check for base case: if the string is empty - return true, because of the how recursion part works. Check if the first character is a digit. Recursively check the remaining substring. If this character is not digit then the string is not all digits*
+
+
+# Task 9
+
+**Description**: *Return binomial coefficient of __n__ and __k__*
+
+**Explanation**: *Base case: __C(0, n) = C(n, n) = 1__. Recursive case: __C(k, n) = C(k-1, n-1) + C(k, n-1)__*
+
+
+# Task 10
+
+**Description**: *Return GCD*
+
+**Explanation**: *Base case: if __b = 0__ we return __'a'__ because __GCD__ of __'a'__ and __0__ is __'a'__. Recursive case: we keep dividing the larger number by the smaller number until the remainder is zero, core concept - __Euclidean Algorithm__*
