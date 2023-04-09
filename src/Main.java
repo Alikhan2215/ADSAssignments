@@ -77,21 +77,25 @@ public class Main {
                 reverseArray(arr7, n7);
                 break;
             case 8:
-
-                // Prompt the user to enter a string
                 System.out.println("Enter a string:");
                 String s;
                 scanner.nextLine();
                 s = scanner.nextLine();
                 System.out.println("Problem 8.");
 
-                // Call the isAllDigits function with the user input
+
                 if(isAllDigits(s)){
                     System.out.println("yes");
                 }
                 else{
                     System.out.println("no");
                 }
+                break;
+            case 9:
+                System.out.println("Enter n and k for binomial coef: ");
+                int n = scanner.nextInt();
+                int k = scanner.nextInt();
+                System.out.println("Problem 9. Binomial coefficient of entered n and k: " + binomialCoefficient(n, k));
                 break;
         }
 
@@ -244,6 +248,21 @@ public class Main {
             return isAllDigits(s.substring(1));// Recursively check the remaining substring
         } else {
             return false;// If this character is not digit then the string is not all digits
+        }
+    }
+    /*
+    long binomialCoefficient(int n, int k)
+
+    @binomialCoefficient - function to find binomial coefficient of n and k
+    @parameter int n - part of binomial coefficient formula
+    @parameter int k - part of binomial coefficient formula
+    @return - binomial coefficient of n and k
+     */
+    public static long binomialCoefficient(int n, int k) {
+        if (k == 0 || k == n) {//Base case: C(0, n) = C(n, n) = 1
+            return 1;
+        } else {//Recursive case: C(k, n) = C(k-1, n-1) + C(k, n-1)
+            return binomialCoefficient(n-1, k-1) + binomialCoefficient(n-1, k);
         }
     }
 
